@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <title>DmxTester | All Channels</title>
+        <style>
+            body {
+                font-family: 'Courier New', Courier, monospace;
+            }
+            .channel {
+                background-color: rgb(192, 192, 192);
+                width: 60px;
+                height: 60px;
+                padding: 5px;
+                margin: 2px;
+
+                display: inline-block;
+            }
+            .ch-nr {
+                display: block;
+                font-weight: 900;
+                font-size: 20px;
+            }
+            .ch-val {
+                font-size: 18px;
+            }
+            .ch-progress {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>DmxTester - All values</h1>
+        <div id='channels'></div>
+        <script>
+            ch_container = document.getElementById('channels');
+            function update() {
+                fetch('/api/all')
+                    .then((data) => data.json())
+                    .then(function (data) {
+                        var values = data.data;
+                        ch_container.innerHTML = '';
+
+                        for (i = 1; i <= 512; i++) {
+                            ch_container.innerHTML += `
+                            <a href='/single?ch=${i}'>
+                            <div class='channel'>
+                            <span class='ch-nr'>CH${i
+                                .toString()
+                                .padStart(3, '0')}</span>
+                            <span class='ch-val'>VAL${values[i - 1]
+                                .toString()
+                                .padStart(3, '0')}</span>
+                            <progress max='255' value='${
+                                values[i - 1]
+                            }' class='ch-progress'></progress>
+                            </div></a>`;
+                        }
+                    });
+            }
+            update();
+            setInterval(update, 1000);
+        </script>
+    </body>
+</html>

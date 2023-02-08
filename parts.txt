@@ -1,0 +1,10 @@
+LCD with i2c: https://www.amazon.de/dp/B019K5X53O?psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExTUFGT1NXNlJHTlVHJmVuY3J5cHRlZElkPUEwMTA1MTU1MUlFVkUwTlFBVUNQWCZlbmNyeXB0ZWRBZElkPUEwNjg1NDY1M0hTTDVSTVhZQlNUQyZ3aWRnZXROYW1lPXNwX2RldGFpbF90aGVtYXRpYyZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU&pd_rd_i=B019K5X53O&language=en_US&s=pc&pf_rd_p=57cbdc41-b731-4e3d-aca7-49078b13a07b&pd_rd_wg=cpz68&pf_rd_r=D2PFZWA2DJHGNXETWME0&ref_=as_li_ss_tl&pd_rd_w=iYgDu&pd_rd_r=a34999df-65f5-4053-b97a-51f2f2f00414&linkCode=gg2&linkId=6e434c99ae0ecb804915802caee049da&tag=circuitschool-20
+MAX485 TTL to RS485: https://www.roboter-bausatz.de/p/max485-modul-rs-485-ttl-auf-rs485-modul
+ESP32 DOIT DEVIT V1: https://www.amazon.de/ESP32-WROOM-32-Entwicklungsplatine-ESP-32S-Bluetooth-Arduino/dp/B084KWNMM4
+2x toggle switch: https://www.berrybase.de/subminiatur-kippschalter-2-pin-ein-aus
+Potentiometer: https://www.berrybase.de/drehpotentiometer-100k-937-liegend-mono-6mm-loetoesen
+
+XLR female: https://www.berrybase.de/xlr-einbaubuchse-3-pin-mit-verriegelung
+XLR male: https://www.berrybase.de/xlr-einbaustecker-3-polig
+
+Status LED (5V): https://www.berrybase.de/optosupply-led-5mm-kerzenscheinimitierend-4500-5800mcd-300-klar-rot

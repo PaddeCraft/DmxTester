@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset='UTF-8' />
+        <meta http-equiv='X-UA-Compatible' content='IE=edge' />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <title>DmxTester | Single Channel</title>
+    </head>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        #ch-val-wrapper {
+            width: 100%;
+            display: flex;
+        }
+        #ch-val-progress {
+            flex-grow: 100;
+            margin-left: 10px;
+        }
+    </style>
+    <body>
+        <h1>DmxTester - Channel <span id='ch-num'>0</span></h1>
+        <div id='ch-val-wrapper'>
+            Loading
+            <progress id='ch-val-progress'></progress>
+        </div>
+        <br />
+        <label for='set-val-inp'>Set value</label>
+        <input type='number' id='set-val-inp' value='255' min='0' max='255' />
+        <button id='set-val-set'>Set</button>
+        <script>
+            var channel = parseInt(
+                new URL(window.location).searchParams.get('ch')
+            );
+            if (!channel || channel < 1 || channel > 512) {
+                channel = 1;
+            }
+            document.getElementById('ch-num').innerText = channel;
+            async function update() {
+                var resp = await fetch('/api/single');
+                document.getElementById('ch-val-wrapper').innerHTML = `
+                VAL${resp.text.padStart(3, '0')}
+                <progress max='255' value='${
+                    resp.text
+                }' id='ch-val-progress'></progress>
+                `;
+            }
+            update();
+            setInterval(update, 500);
+            document
+                .getElementById('set-val-set')
+                .addEventListener('click', function () {
+                    fetch(
+                        '/api/set?ch=' +
+                            channel +
+                            '&val=' +
+                            document.getElementById('set-val-inp').value
+                    );
+                });
+        </script>
+    </body>
+</html>
