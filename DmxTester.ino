@@ -255,6 +255,7 @@ void route_api_set()
 
         if (ch >= 1 && ch <= 512 && val >= 0 && val <= 255)
         {
+            write_mode = true;
             data[ch] = val;
 
             server.send(200, "text/plain", "success");
